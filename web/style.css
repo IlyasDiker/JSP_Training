@@ -1,0 +1,51 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: sans-serif;
+}
+
+.box{
+    width: 300px;
+    background-color: #cccccc;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    margin: 80px auto;
+}
+
+.inpfield{
+    width: 250px;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 10px;
+    border: solid 0px;
+    margin: 5px;
+}
+
+.inpbtn{
+    width: 270px;
+    padding: 10px;
+    font-size: 17px;
+    border-radius: 10px;
+    border:solid 0px;
+    color:white;
+    margin: 5px;
+    background-color: #0066ff;
+}
+
+.inpbtn:hover{
+    background-color: #004080;
+}
+
+.titre{
+    margin: 5px;
+}
+
+.radiobox{
+    margin: 10px 10px;
+}
+.text{
+    font-size: 12px;
+    display: inline-block;
+    margin-top: 10px;
+}

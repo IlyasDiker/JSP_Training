@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Gestion Register</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+        <div class="box">
+            <h2 class="titre">Register</h2>
+            <form action="ServletRegister">
+                <input class="inpfield" type="text" name="cin" placeholder="CIN*"><br/>
+                <input class="inpfield" type="text" name="fullname" placeholder="Full Name*"><br/>
+                <input class="radiobox" type="radio" id="Male" name="Gender" value="Male">Male
+                <input class="radiobox" type="radio" id="Female" name="Gender" value="Female">Female<br/>
+                <input class="inpfield" type="text" name="fullname" placeholder="Telephone"><br/>
+                <input class="inpfield" type="password" name=   "pass" placeholder="Password*"><br/>
+                <input class="inpbtn" type="submit" value="Register">
+                <div class="text"><p>You already have an account, <a href='index.html'>Login</a></p></div>
+            </form>
+        </div>
+    </body>
+</html>
