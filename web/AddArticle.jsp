@@ -47,8 +47,9 @@
                 <fieldset>
                     <legend>Ajouter Article</legend>
             <input class="form-control" value="<%=maxref%>" type="text" name="ref" placeholder="Ref*" readonly><br/>
-            <input class="form-control" type="text" name="nom" placeholder="Article" ><br/>
-            <input class="form-control" type="number" name="price" placeholder="Price*" ><br/>
+            <input class="form-control" type="text" name="nom" placeholder="Article" required><br/>
+            <input class="form-control" type="number" name="price" placeholder="Price*" required><br/>
+            <input class="form-control" type="number" name="quantity" placeholder="Quantity*" required><br/>
             <input class="btn btn-primary btn-lg btn-block" type="submit" value="Ajouter">
                 </fieldset>
             </form>

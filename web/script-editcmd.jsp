@@ -29,6 +29,31 @@
             + "quantity ="+qte+""
                     + " where ref ='"+ref+"'";
     System.out.println(querry);
-    stm.executeQuery(querry);
-    response.sendRedirect("ListCommandes.jsp");
+    
+
+    ResultSet rs2 = stm.executeQuery("Select quantity from Commandes where ref = '"+ref+"'");
+    System.out.println("Select ref from article where ref = "+article);
+    System.out.println("Select quantity from Commandes where ref = '"+ref+"'");
+    if (rs2.next()){
+         int oldqt = Integer.parseInt(rs2.getString(1));
+         int newqt = Integer.parseInt(qte);
+         System.out.println(oldqt+"-"+newqt);
+         if (oldqt > newqt){
+             int differ = oldqt-newqt;
+             stm.executeQuery("update article set quantity = quantity + "+ differ +" where ref='"+article+"'");
+             System.out.println("update article set quantity = quantity + "+ differ +" where ref='"+article+"'");
+             stm.executeQuery(querry);
+            response.sendRedirect("ListCommandes.jsp");
+         } else if (newqt > oldqt) {
+             int differ = newqt-oldqt;
+             stm.executeQuery("update article set quantity = quantity - "+ differ +" where ref='"+article+"'");
+             System.out.println("update article set quantity = quantity - "+ differ +" where ref='"+article+"'");
+             stm.executeQuery(querry);
+            response.sendRedirect("ListCommandes.jsp");
+         } else {
+            stm.executeQuery(querry);
+            response.sendRedirect("ListCommandes.jsp");
+         }
+    }
+
 %>

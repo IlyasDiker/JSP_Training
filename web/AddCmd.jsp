@@ -72,7 +72,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleFormControlSelect1">Produit</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="article" onchange="setprice()">
+                <select class="form-control" id="exampleFormControlSelect1" name="article" onchange="setprice()" required>
                     <option value="null" data-price="0" disabled selected>Selectioner un livre</option>
                     <%  
                         ResultSet rs2 = stm.executeQuery("Select ref, nom, price from article");

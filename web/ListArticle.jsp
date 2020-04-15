@@ -30,26 +30,47 @@
     </head>
     <body>
         <%@include file="home.jsp"%>
+        <%String index = request.getParameter("index");%>
+        <%String sv = "";
+        if(index != null){
+            sv = index;
+        }
+        %>
         <div class="content">
+            <nav class="navbar navbar-light bg-light justify-content-between">
+                <a class="navbar-brand">Search</a>
+                <form action="script-search.jsp" method="POST" class="form-inline">
+                  <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Ref" name="index" aria-label="Search">
+                  <button class="btn btn-sm btn-outline-secondary my-2 my-sm-0" value="<%=sv%>" type="submit">Search</button>
+                </form>
+            </nav><br/>
             <table class="table table-hover ">
                 <thead class="thead-dark">
                     <tr>
                         <th>Ref</th>
                         <th>Nom</th>
                         <th>Price</th>
+                        <th>Stock(qte)</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <%  Connection conn = DCM.getConnection();
                         Statement stm = conn.createStatement();
-                        ResultSet rs = stm.executeQuery("Select * from article order by ref");
+                        ResultSet rs = null;
+                        if (index!=null){
+                            rs = stm.executeQuery("Select * from article where ref = "+index+" order by ref");
+                        } else {
+                            rs = stm.executeQuery("Select * from article order by ref");
+                        }
+
                     while(rs.next()){%>
                     <tr>
                         <td><%=rs.getString(1)%></td>
                         <td><%=rs.getString(2)%></td>
                         <td><%=rs.getString(3)%></td>
-                        <td><a href="EditArticle.jsp?ref=<%=rs.getString(1)%>&article=<%=rs.getString(2)%>&price=<%=rs.getString(3)%>" class="badge badge-primary">🖊 Modifier</a>
+                        <td><%=rs.getString(4)%></td>
+                        <td><a href="EditArticle.jsp?ref=<%=rs.getString(1)%>&article=<%=rs.getString(2)%>&price=<%=rs.getString(3)%>&quantity=<%=rs.getString(4)%>" class="badge badge-primary">🖊 Modifier</a>
                             <a  OnClick="if(check = confirm('Are you sure')){window.location='script-deletearticle.jsp?ref=<%=rs.getString(1)%>'}"  class="badge badge-primary text-white">🗑 Suprimer</a></td>
                     </tr>
                       <%}%>

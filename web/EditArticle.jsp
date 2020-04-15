@@ -33,6 +33,7 @@
          String ref=request.getParameter("ref");
          String article=request.getParameter("article");
          String price=request.getParameter("price");
+         String quantity=request.getParameter("quantity");
          Connection conn = DCM.getConnection();
          Statement stm = conn.createStatement();
          
@@ -41,10 +42,14 @@
             <form action="script-editarticle.jsp" method="POST" class="form-horizontal">
                 <fieldset>
                     <legend>Modifier Commande</legend>
+                    <label for="exampleFormControlSelect1">Ref</label>
             <input class="form-control" value="<%=ref%>" type="text" name="ref" placeholder="Ref*" readonly><br/>
+            <label for="exampleFormControlSelect1">Nom Article</label>
             <input class="form-control" value="<%=article%>" type="text" name="article" placeholder="Client"><br/>
-            <input class="form-control" value="<%=article%>" type="text" name="article" placeholder="Client"><br/>
+            <label for="exampleFormControlSelect1">Prix</label>
             <input class="form-control" value="<%=price%>" type="text" name="price" placeholder="Price*" ><br/>
+            <label for="exampleFormControlSelect1">Quantity</label>
+            <input class="form-control" value="<%=quantity%>" type="text" name="quantity" placeholder="Quantity*" ><br/>
             <input class="btn btn-primary btn-lg btn-block" type="submit" value="Modifier">
                 </fieldset>
             </form>

@@ -30,7 +30,10 @@
             + ", SYSDATE, "
             + qte
     + ")";
+    String sql2="update article set quantity = quantity - "+ qte +" where ref='"+article+"'";    
     System.out.println(sql);
+    System.out.println(sql2);
     stm.executeQuery(sql);
+    stm.executeQuery(sql2);
     response.sendRedirect("ListCommandes.jsp");
 %>

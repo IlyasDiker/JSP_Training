@@ -56,7 +56,7 @@
                         <td><%=rs.getString(5)%></td>
                         <td><a href="EditCmd.jsp?ref=<%=rs.getString(1)%>&article=<%=rs.getString(2)%>&client=<%=rs.getString(3)%>&qte=<%=rs.getString(6)%>&price=<%=rs.getString(4)%>" class="badge badge-primary">🖊 Modifier</a>
                             <a href="DetailCmd.jsp?ref=<%=rs.getString(1)%>" class="badge badge-primary">📋 Detail</a>
-                            <a OnClick="if(check = confirm('Are you sure')){window.location='script-deletecmd.jsp?ref=<%=rs.getString(1)%>'}" class="badge badge-primary text-white">🗑 Suprimer</a></td>
+                            <a OnClick="if(check = confirm('Are you sure')){window.location='script-deletecmd.jsp?ref=<%=rs.getString(1)%>&quantity=<%=rs.getString(6)%>&article=<%=rs.getString(2)%>'}" class="badge badge-primary text-white">🗑 Suprimer</a></td>
                     </tr>
                       <%}%>
                 </tbody>

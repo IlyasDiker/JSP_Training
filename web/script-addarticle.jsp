@@ -16,6 +16,7 @@
     String ref = request.getParameter("ref");
     String nom = request.getParameter("nom");
     String price = request.getParameter("price");
+    String quantity = request.getParameter("quantity");
 
     
     Connection conn = DCM.getConnection();
@@ -23,7 +24,8 @@
     String sql = "INSERT INTO article VALUES ("
             + "'"+ref+"',"
             + "'"+nom+"',"
-            + price
+            + price +","
+            + quantity
     + ")";
     System.out.println(sql);
     stm.executeQuery(sql);

@@ -66,10 +66,10 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Produit</label>
+                <label for="exampleFormControlSelect1">Produit <span class="badge badge-info">Soory, our policy doesn't allow changing item</span></label>
                 <select class="form-control" id="exampleFormControlSelect1" name="article" onchange="setprice()">
                     <%  
-                        ResultSet rs2 = stm.executeQuery("Select ref, nom, price from article");
+                        ResultSet rs2 = stm.executeQuery("Select ref, nom, price from article where ref = "+article);
                         while(rs2.next()){
                             %>
                     <option value="<%=rs2.getString(1)%>" data-price="<%=rs2.getString(3)%>"><%=rs2.getString(2)%></option>

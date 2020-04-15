@@ -19,10 +19,14 @@
          <%
             try{ 
              String ref=request.getParameter("ref");
+             String quantity=request.getParameter("quantity");
+             String article=request.getParameter("article");
              String req="delete from commandes where ref='"+ref+"'";    
+             String req2="update article set quantity = quantity + "+quantity+" where ref='"+article+"'";    
              Connection conn = DCM.getConnection();
              Statement stm = conn.createStatement();
              stm.executeQuery(req);
+             stm.executeQuery(req2);
              out.println("<div class='alert alert-success' role='alert'>Commande Deleted Succesfully!</div>");
              response.sendRedirect("ListCommandes.jsp");
             } catch(SQLException e) {
