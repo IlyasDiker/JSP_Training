@@ -36,6 +36,7 @@
                         <th>Ref</th>
                         <th>Article</th>
                         <th>Client</th>
+                        <th>Quantity</th>
                         <th>Price</th>
                         <th>Date</th>
                         <th>Action</th>
@@ -50,9 +51,11 @@
                         <td><%=rs.getString(1)%></td>
                         <td><%=rs.getString(2)%></td>
                         <td><%=rs.getString(3)%></td>
+                        <td><%=rs.getString(6)%></td>
                         <td><%=rs.getString(4)%></td>
                         <td><%=rs.getString(5)%></td>
-                        <td><a href="EditCmd.jsp?ref=<%=rs.getString(1)%>&article=<%=rs.getString(2)%>&client=<%=rs.getString(3)%>&price=<%=rs.getString(4)%>" class="badge badge-primary">🖊 Modifier</a>
+                        <td><a href="EditCmd.jsp?ref=<%=rs.getString(1)%>&article=<%=rs.getString(2)%>&client=<%=rs.getString(3)%>&qte=<%=rs.getString(6)%>&price=<%=rs.getString(4)%>" class="badge badge-primary">🖊 Modifier</a>
+                            <a href="DetailCmd.jsp?ref=<%=rs.getString(1)%>" class="badge badge-primary">📋 Detail</a>
                             <a OnClick="if(check = confirm('Are you sure')){window.location='script-deletecmd.jsp?ref=<%=rs.getString(1)%>'}" class="badge badge-primary text-white">🗑 Suprimer</a></td>
                     </tr>
                       <%}%>

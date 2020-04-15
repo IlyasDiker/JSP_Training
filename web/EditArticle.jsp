@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Modifier Commande</title>
+        <title>Modifier Article</title>
         <style>
             .content{
                 margin: 50px auto;
@@ -43,8 +43,9 @@
                     <legend>Modifier Commande</legend>
             <input class="form-control" value="<%=ref%>" type="text" name="ref" placeholder="Ref*" readonly><br/>
             <input class="form-control" value="<%=article%>" type="text" name="article" placeholder="Client"><br/>
+            <input class="form-control" value="<%=article%>" type="text" name="article" placeholder="Client"><br/>
             <input class="form-control" value="<%=price%>" type="text" name="price" placeholder="Price*" ><br/>
-            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Ajouter">
+            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Modifier">
                 </fieldset>
             </form>
         </div>

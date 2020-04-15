@@ -17,6 +17,7 @@
     String article = request.getParameter("article");
     String client = request.getParameter("client");
     String price = request.getParameter("price");
+    String qte = request.getParameter("qte");
 
     
     Connection conn = DCM.getConnection();
@@ -24,7 +25,8 @@
     String querry = "UPDATE commandes SET "
             + "article ='"+article+"',"
             + "client ='"+client+"',"
-            + "price ="+price+""
+            + "price ="+price+", "
+            + "quantity ="+qte+""
                     + " where ref ='"+ref+"'";
     System.out.println(querry);
     stm.executeQuery(querry);

@@ -18,7 +18,7 @@
     String article = request.getParameter("article");
     String client = request.getParameter("client");
     String price = request.getParameter("price");
-
+    String qte = request.getParameter("qte");
     
     Connection conn = DCM.getConnection();
     Statement stm = conn.createStatement();
@@ -27,7 +27,8 @@
             + "'"+article+"',"
             + "'"+client+"',"
             + price
-            + ", SYSDATE"
+            + ", SYSDATE, "
+            + qte
     + ")";
     System.out.println(sql);
     stm.executeQuery(sql);

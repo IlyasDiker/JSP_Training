@@ -26,6 +26,15 @@
                 }
             }
         </style>
+        <script>
+            function setprice() {
+                var comb = document.getElementById("exampleFormControlSelect1");
+                var data = comb.options[comb.selectedIndex].dataset.price;
+                var qte = document.getElementById("blasadyalquantity").value;
+                data = data * qte;
+                document.getElementById("blasadyalprice").value = data;
+            }
+        </script>
     </head>
     <body>
         <%@include file="home.jsp"%>
@@ -34,6 +43,7 @@
          String article=request.getParameter("article");
          String client=request.getParameter("client");
          String price=request.getParameter("price");
+         String qte=request.getParameter("qte");
          Connection conn = DCM.getConnection();
          Statement stm = conn.createStatement();
          
@@ -45,19 +55,8 @@
             <input class="form-control" value="<%=ref%>" type="text" name="ref" placeholder="Ref*" readonly><br/>
             <!--input class="form-control" value="<%=article%>" type="text" name="article" placeholder="Article" ><br/-->
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Produit</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="article">
-                    <%  
-                        ResultSet rs2 = stm.executeQuery("Select ref, nom from article");
-                        while(rs2.next()){
-                            %>
-                    <option value="<%=rs2.getString(1)%>"><%=rs2.getString(2)%></option>
-                    <%}%>
-                </select>
-            </div>
-            <div class="form-group">
                 <label for="exampleFormControlSelect1">Client</label>
-                <select class="form-control" id="exampleFormControlSelect1" name="client">
+                <select class="form-control" id="exampleFormControlSelect2" name="client">
                     <%  
                         ResultSet rs3 = stm.executeQuery("Select cin, nomcp from students");
                         while(rs3.next()){
@@ -66,9 +65,22 @@
                     <%}%>
                 </select>
             </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Produit</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="article" onchange="setprice()">
+                    <%  
+                        ResultSet rs2 = stm.executeQuery("Select ref, nom, price from article");
+                        while(rs2.next()){
+                            %>
+                    <option value="<%=rs2.getString(1)%>" data-price="<%=rs2.getString(3)%>"><%=rs2.getString(2)%></option>
+                    <%}%>
+                </select>
+            </div>
+            
             <!--input class="form-control" value="<%=client%>" type="text" name="client" placeholder="Client"><br/-->
-            <input class="form-control" value="<%=price%>" type="text" name="price" placeholder="Price*" ><br/>
-            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Ajouter">
+            <input class="form-control" value="<%=qte%>" type="text" id="blasadyalquantity" onchange="setprice()" name="qte" placeholder="Quantity*"><br/>
+            <input class="form-control" value="<%=price%>" type="text" id="blasadyalprice" name="price" placeholder="Price*" readonly><br/>
+            <input class="btn btn-primary btn-lg btn-block" type="submit" value="Modifier">
                 </fieldset>
             </form>
         </div>
