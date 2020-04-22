@@ -14,7 +14,6 @@
 <% 
     String Cin = request.getParameter("cin");
     String Password = request.getParameter("pass");
-
     
     Connection conn = DCM.getConnection();
     Statement stm = conn.createStatement();
